@@ -1,7 +1,8 @@
 <script lang="ts" module>
   import ConfigTab from "@/components/config-tab/ConfigTab.svelte";
-  import "./app.css";
+  import "../app.css";
   import Icon from "@iconify/svelte";
+  import Deck from "./Deck.svelte";
 
   type Page = "home" | "deck" | "settings";
 
@@ -9,13 +10,15 @@
 </script>
 
 <main class="w-120 h-120 flex flex-col items-center justify-center">
-  {#if page === "home"}
-    <h1>Welcome to Remeble!</h1>
-  {:else if page === "deck"}
-    <p>Deck.</p>
-  {:else}
-    <ConfigTab />
-  {/if}
+  <div class="h-104 flex flex-col items-center justify-center overflow-y-auto">
+    {#if page === "home"}
+      <h1>Welcome to Remeble!</h1>
+    {:else if page === "deck"}
+      <Deck />
+    {:else}
+      <ConfigTab />
+    {/if}
+  </div>
 
   <div class="dock">
     <button

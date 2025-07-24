@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  import "./app.css";
+  import "../app.css";
   import { QueryClientProvider, QueryClient } from "@tanstack/svelte-query";
   import Router from "./Router.svelte";
   import { Toaster } from "svelte-sonner";

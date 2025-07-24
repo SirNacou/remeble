@@ -50,14 +50,26 @@
 </script>
 
 <form {onsubmit} class="w-80">
-  <label class="label" for="url">Anki Connect URL</label>
-  <input
-    type="url"
-    class="input"
-    id="url"
-    placeholder="URL"
-    bind:value={userConfigState.value.ankiConnectURL}
-  />
+  <fieldset class="fieldset">
+    <label class="fieldset-label" for="url">Anki Connect URL</label>
+    <input
+      type="url"
+      class="input"
+      id="url"
+      placeholder="URL"
+      bind:value={userConfigState.value.ankiConnectURL}
+    />
+  </fieldset>
+  <fieldset class="fieldset">
+    <label class="fieldset-label" for="url">Anki Connect URL</label>
+    <input
+      type="url"
+      class="input"
+      id="url"
+      placeholder="URL"
+      bind:value={userConfigState.value.ankiConnectURL}
+    />
+  </fieldset>
 
   <button
     class={`btn btn-soft mt-4 w-full ${loading ? "btn-disabled" : ""}`}

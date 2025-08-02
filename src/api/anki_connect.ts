@@ -5,11 +5,15 @@ export type AnkiResponse<T> = {
   result: T | null;
 };
 
-export async function postAnkiConnectRequest<T = any>(
-  action: string,
-  version: number = 6,
-  params: object | null = null
-): Promise<AnkiResponse<T>> {
+export async function postAnkiConnectRequest<T = any>({
+  action,
+  version = 6,
+  params = null,
+}: {
+  action: string;
+  version: number;
+  params: object | null;
+}): Promise<AnkiResponse<T>> {
   try {
     const res = await fetch(userConfigState.value.ankiConnectURL, {
       method: "POST",

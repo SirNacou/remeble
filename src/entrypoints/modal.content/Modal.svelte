@@ -74,6 +74,7 @@
     </div>
     <div class="modal-content-area">
       <input type="text" bind:value={text} class="input" />
+
       <div class="modal-actions">
         <button onclick={() => console.log("Translate:", text)}
           >Translate</button

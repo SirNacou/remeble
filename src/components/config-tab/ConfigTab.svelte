@@ -5,13 +5,17 @@
 
   let loading = $state(false);
 
-  async function changeAnkiConnectURL(event: Event) {
+  async function changeAnkiConnectURL() {
     userConfigState.value = {
       ...userConfigState.value,
       ankiConnectURL: userConfigState.value.ankiConnectURL,
     };
 
-    const res = await postAnkiConnectRequest("requestPermission", 6);
+    const res = await postAnkiConnectRequest({
+      action: "requestPermission",
+      version: 6,
+      params: null,
+    });
 
     if (res.error) {
       toast.error(
@@ -33,6 +37,13 @@
     );
   }
 
+  async function changeOpenLApiKey() {
+    userConfigState.value = {
+      ...userConfigState.value,
+      rapidApiKey: userConfigState.value.rapidApiKey,
+    };
+  }
+
   async function onsubmit(event: SubmitEvent) {
     event.preventDefault();
 
@@ -42,7 +53,8 @@
 
     try {
       loading = true;
-      await changeAnkiConnectURL(event);
+      await changeAnkiConnectURL();
+      changeOpenLApiKey();
     } finally {
       loading = false;
     }
@@ -60,14 +72,15 @@
       bind:value={userConfigState.value.ankiConnectURL}
     />
   </fieldset>
+
   <fieldset class="fieldset">
-    <label class="fieldset-label" for="url">Anki Connect URL</label>
+    <label class="fieldset-label" for="apiKey">Rapid Api Key</label>
     <input
-      type="url"
+      type="text"
       class="input"
-      id="url"
-      placeholder="URL"
-      bind:value={userConfigState.value.ankiConnectURL}
+      id="apiKey"
+      placeholder="API Key"
+      bind:value={userConfigState.value.rapidApiKey}
     />
   </fieldset>
 

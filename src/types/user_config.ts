@@ -1,7 +1,8 @@
 export type UserConfig = {
   theme: "light" | "dark" | "system";
   ankiConnectURL: string;
-  deckId: number;
-  nativeLanguage: string;
+  deckName: string;
+  rapidApiKey: string;
+  currentLanguage: string;
   targetLanguage?: string; // Optional field for target language
 };
